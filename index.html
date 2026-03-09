@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>三姐妹 AI VTuber</title>
+
+<style>
+body{
+background:#111;
+color:white;
+text-align:center;
+font-family:sans-serif;
+}
+
+#stage{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:30px;
+}
+
+.char img{
+height:220px;
+}
+
+#chat{
+width:90%;
+max-width:700px;
+height:300px;
+background:#222;
+margin:40px auto;
+padding:10px;
+overflow:auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1>三姐妹 AI VTuber</h1>
+
+<div id="stage">
+
+<div class="char">
+<img src="characters/rin.png">
+<p>凜夜</p>
+</div>
+
+<div class="char">
+<img src="characters/xue.png">
+<p>小雪</p>
+</div>
+
+<div class="char">
+<img src="characters/bing.png">
+<p>冰璃</p>
+</div>
+
+</div>
+
+<div id="chat"></div>
+
+<input id="msg">
+<button onclick="send()">送出</button>
+
+<script>
+
+function send(){
+
+let msg=document.getElementById("msg").value
+
+addChat("你",msg)
+
+let r=Math.random()
+
+if(r<0.33){
+addChat("小雪","你好！！")
+}
+
+else if(r<0.66){
+addChat("凜夜","嗯，我在聽。")
+}
+
+else{
+addChat("冰璃","慢慢說。")
+}
+
+}
+
+function addChat(name,text){
+
+let chat=document.getElementById("chat")
+
+chat.innerHTML+="<br>"+name+"："+text
+
+chat.scrollTop=chat.scrollHeight
+
+}
+
+</script>
+
+</body>
+</html>
